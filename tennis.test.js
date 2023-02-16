@@ -73,4 +73,13 @@ describe('score', function () {
     scoreShouldBe('deuce');
   });
 
+
+  it('should be first player adv', function () {
+    givenDeuce();
+    givenFirstPlayerScore(1)
+    scoreShouldBe('Joey adv');
+  });
+
+
+
 });
