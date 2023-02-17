@@ -1,9 +1,9 @@
 import { Tennis } from 'tennis';
 
 describe('score', function () {
-  let tennis = new Tennis();
+  let tennis = new Tennis('Joey', 'Tom');
   beforeEach(() => {
-    tennis = new Tennis();
+    tennis = new Tennis('Joey', 'Tom');
   });
 
   function scoreShouldBe(expected) {
@@ -73,13 +73,21 @@ describe('score', function () {
     scoreShouldBe('deuce');
   });
 
-
   it('should be first player adv', function () {
     givenDeuce();
-    givenFirstPlayerScore(1)
+    givenFirstPlayerScore(1);
     scoreShouldBe('Joey adv');
   });
 
+  it('should be second player adv', function () {
+    givenDeuce();
+    givenSecondPlayerScore(1);
+    scoreShouldBe('Tom adv');
+  });
 
-
+  it('should be second player win', function () {
+    givenDeuce();
+    givenSecondPlayerScore(2);
+    scoreShouldBe('Tom win');
+  });
 });
